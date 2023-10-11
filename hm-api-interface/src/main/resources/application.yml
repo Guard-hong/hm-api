@@ -1,0 +1,8 @@
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+hcj:
+  client:
+    access-key: hcj
+    secret-key: abcde

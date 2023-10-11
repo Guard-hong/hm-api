@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <groupId>com.hmmu</groupId>
+    <artifactId>hm-api</artifactId>
+    <version>0.0.1</version>
+    <name>hm-api</name>
+    <description>hm-API 接口开放平台</description>
+
+
+
+    <modules>
+        <module>hm-api-backend</module>
+        <module>hm-api-interface</module>
+        <module>hm-api-gateway</module>
+        <module>hm-api-common</module>
+        <module>hm-api-client-sdk</module>
+    </modules>
+    
+</project>
