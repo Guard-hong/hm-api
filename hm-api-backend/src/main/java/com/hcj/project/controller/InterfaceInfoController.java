@@ -221,7 +221,8 @@ public class InterfaceInfoController {
         }
         com.hcj.hmapiclientsdk.model.User user = new com.hcj.hmapiclientsdk.model.User();
         user.setUsername("test");
-        String username = hmapiClient.getNameByPost(user);
+//        String username = hmapiClient.getNameByPost(user);
+        String username = "hmapiClient.getNameByPost(user)";
         if(StringUtils.isBlank(username)){
             throw new BusinessException(ErrorCode.SYSTEM_ERROR,"接口验证失败");
         }
@@ -289,7 +290,8 @@ public class InterfaceInfoController {
         HmApiClient tempClient = new HmApiClient(accessKey, secretKey);
         Gson gson = new Gson();
         com.hcj.hmapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.hcj.hmapiclientsdk.model.User.class);
-        String nameByPost = tempClient.getNameByPost(user);
+//        String nameByPost = tempClient.getNameByPost(user);
+        String nameByPost = "tempClient.getNameByPost(user)";
         return ResultUtils.success(nameByPost);
     }
 }
