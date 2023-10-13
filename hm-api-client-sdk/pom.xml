@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.hcj</groupId>
     <artifactId>hm-api-client-sdk</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>hm-api-client-sdk</name>
     <description>hm-api-client-sdk</description>
     <properties>
@@ -43,6 +43,10 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.8.9 </version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
     </dependencies>
 

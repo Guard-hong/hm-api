@@ -2,34 +2,25 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hapi-backend" />
+        <module name="hm-api-backend" />
+        <module name="hm-api-interface" />
         <module name="hm-api-client-sdk" />
-        <module name="hapi-gateway" />
-        <module name="hapi-interface" />
-        <module name="hapi-common" />
+        <module name="hm-api-common" />
+        <module name="hm-api-gateway" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="hapi-backend" target="1.8" />
-      <module name="hapi-common" target="1.8" />
-      <module name="hapi-gateway" target="1.8" />
-      <module name="hapi-interface" target="1.8" />
-      <module name="hm-api" target="1.8" />
-      <module name="hm-api-client-sdk" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="hapi-backend" options="-parameters" />
-      <module name="hapi-common" options="-parameters" />
-      <module name="hapi-gateway" options="-parameters" />
-      <module name="hapi-interface" options="-parameters" />
+      <module name="hm-api-backend" options="-parameters" />
       <module name="hm-api-client-sdk" options="-parameters" />
+      <module name="hm-api-common" options="-parameters" />
+      <module name="hm-api-gateway" options="-parameters" />
+      <module name="hm-api-interface" options="-parameters" />
     </option>
   </component>
 </project>
