@@ -4,7 +4,7 @@ spring:
   # DataSource Config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hm-api
+    url: jdbc:mysql://localhost:3306/hapi
     username: root
     password: hcj
   mvc:

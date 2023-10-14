@@ -1,15 +1,21 @@
 package com.hcj.hmapiclientsdk.client;
 
-import cn.hutool.core.util.RandomUtil;
+import cn.hutool.crypto.SecureUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
-import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
-import com.hcj.hmapiclientsdk.model.User;
+import com.hcj.hmapiclientsdk.common.ErrorCode;
+import com.hcj.hmapiclientsdk.constant.GatewayHostConstant;
+import com.hcj.hmapiclientsdk.exception.BusinessException;
+import com.hcj.hmapiclientsdk.model.enums.MethodEnum;
+import com.hcj.hmapiclientsdk.model.hmapiclient.Identification;
+import com.hcj.hmapiclientsdk.model.request.UnifyRequest;
+import com.hcj.hmapiclientsdk.model.response.PoisonousChickenSoupResponse;
+import com.hcj.hmapiclientsdk.model.response.UnifyResponse;
 import com.hcj.hmapiclientsdk.utils.SignUtils;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,21 +25,12 @@ import java.util.Map;
  * @DateTime:2023/10/2
  * @Description:
  **/
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class HmApiClient {
+@Slf4j
+public class HmApiClient extends BaseClient {
 
-    /**
-     * 访问密钥
-     */
-    private String accessKey;
-
-    /**
-     * 秘密密钥
-     */
-    private String secretKey;
-
-
+    public PoisonousChickenSoupResponse getPoisonousChickenSoup(Identification identification,UnifyRequest unifyRequest){
+        PoisonousChickenSoupResponse response = request(identification, unifyRequest, PoisonousChickenSoupResponse.class);
+        return response;
+    }
 
 }

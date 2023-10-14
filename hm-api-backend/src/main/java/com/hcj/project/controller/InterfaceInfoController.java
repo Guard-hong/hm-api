@@ -3,9 +3,14 @@ package com.hcj.project.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.hcj.hmapi.common.model.entity.InterfaceInfo;
 import com.hcj.hmapi.common.model.entity.User;
 import com.hcj.hmapiclientsdk.client.HmApiClient;
+import com.hcj.hmapiclientsdk.model.hmapiclient.Identification;
+import com.hcj.hmapiclientsdk.model.request.UnifyRequest;
+import com.hcj.hmapiclientsdk.model.response.PoisonousChickenSoupResponse;
+import com.hcj.hmapiclientsdk.model.response.UnifyResponse;
 import com.hcj.project.annotation.AuthCheck;
 import com.hcj.project.common.*;
 import com.hcj.project.constant.CommonConstant;
@@ -24,7 +29,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 接口管理
@@ -219,10 +226,7 @@ public class InterfaceInfoController {
         if (oldInterfaceInfo == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
-        com.hcj.hmapiclientsdk.model.User user = new com.hcj.hmapiclientsdk.model.User();
-        user.setUsername("test");
-//        String username = hmapiClient.getNameByPost(user);
-        String username = "hmapiClient.getNameByPost(user)";
+        String username = "";
         if(StringUtils.isBlank(username)){
             throw new BusinessException(ErrorCode.SYSTEM_ERROR,"接口验证失败");
         }
@@ -277,21 +281,26 @@ public class InterfaceInfoController {
         Long id = interfaceInfoInfoRequest.getId();
         String userRequestParams = interfaceInfoInfoRequest.getRequestParams();
         // 判断是否存在
-        InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
-        if (oldInterfaceInfo == null) {
+        InterfaceInfo interfaceInfo = interfaceInfoService.getById(id);
+        if (interfaceInfo == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
-        if(oldInterfaceInfo.getStatus() == InterfaceInfoEnum.OFFLINE.getValue()){
+        if(interfaceInfo.getStatus() == InterfaceInfoEnum.OFFLINE.getValue()){
             throw new BusinessException(ErrorCode.PARAMS_ERROR,"接口关闭");
         }
         User loginUser = userService.getLoginUser(request);
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
-        HmApiClient tempClient = new HmApiClient(accessKey, secretKey);
+        Identification identification = new Identification(accessKey, secretKey);
         Gson gson = new Gson();
-        com.hcj.hmapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.hcj.hmapiclientsdk.model.User.class);
-//        String nameByPost = tempClient.getNameByPost(user);
-        String nameByPost = "tempClient.getNameByPost(user)";
-        return ResultUtils.success(nameByPost);
+        UnifyRequest unifyRequest = new UnifyRequest();
+        Map<String,Object> params = gson.fromJson(interfaceInfoInfoRequest.getRequestParams(),
+                new TypeToken<Map<String, Object>>() {}.getType());
+        unifyRequest.setRequestParams(params);
+        unifyRequest.setMethod(interfaceInfo.getMethod());
+        unifyRequest.setPath(interfaceInfo.getUrl());
+        PoisonousChickenSoupResponse poisonousChickenSoupResponse =
+                hmapiClient.request(identification, unifyRequest, PoisonousChickenSoupResponse.class);
+        return ResultUtils.success(poisonousChickenSoupResponse);
     }
 }

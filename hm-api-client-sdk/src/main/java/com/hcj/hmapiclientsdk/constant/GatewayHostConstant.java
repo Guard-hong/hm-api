@@ -6,5 +6,8 @@ package com.hcj.hmapiclientsdk.constant;
  * @Description:
  **/
 public interface GatewayHostConstant {
-    String GATEWAY_HOST = "http://localhost:8090";
+    /**
+     * 网关地址
+     */
+    String GATEWAY_HOST = "http://localhost:8090"; //本地测试
 }

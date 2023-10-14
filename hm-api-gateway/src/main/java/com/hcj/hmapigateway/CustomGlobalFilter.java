@@ -26,10 +26,12 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.nio.CharBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @Author:HCJ
@@ -56,18 +58,17 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
-        String path = INTERFACE_HOST+request.getPath().value();
+        String path = request.getPath().value();
         String method = request.getMethod().toString();
         log.info("请求唯一标识: " + request.getId());
         log.info("请求路径: "+path);
         log.info("请求方法: "+method);
         // 后续可以根据来源地址来做黑白名单
-        MultiValueMap<String, String> sourceAddress = request.getQueryParams();
-        log.info("请求参数: "+sourceAddress);
+        MultiValueMap<String, String> getParams = request.getQueryParams();
+        log.info("get请求参数: "+getParams);
+//        log.info("post请求参数: "+postParams);
         // 黑白名单
-        if(IP_WHITE_LIST.contains(sourceAddress)){
-            return handleNoAuth(response);
-        }
+
         // 用户鉴权
         HttpHeaders headers = request.getHeaders();
         String accessKey = headers.getFirst("accessKey");
@@ -76,34 +77,34 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         String nonce = headers.getFirst("nonce");
         String timestamp = headers.getFirst("timestamp");
         // todo 用户鉴权参数校验
-        User user = null;
-        try{
-            user = innerUserService.getInvokeUser(accessKey);
-        } catch (Exception e){
-            log.error("getInvokeUser error",e);
-        }
-        if(user == null){
-            return handleNoAuth(response);
-        }
-        String secretKey = user.getSecretKey();
-        String genSign = SignUtils.genSign(body, secretKey);
-        if(sign==null || !sign.equals(genSign)){
-            return handleNoAuth(response);
-        }
-
+//        User user = null;
+//        try{
+//            user = innerUserService.getInvokeUser(accessKey);
+//        } catch (Exception e){
+//            log.error("getInvokeUser error",e);
+//        }
+//        if(user == null){
+//            return handleNoAuth(response);
+//        }
+//        String secretKey = user.getSecretKey();
+//        String genSign = SignUtils.genSign(body, secretKey);
+//        if(sign==null || !sign.equals(genSign)){
+//            return handleNoAuth(response);
+//        }
         // 接口是否存在
-        InterfaceInfo interfaceInfo = null;
-        try{
-            interfaceInfo = innerInterfaceInfoService.getInterfaceInfo(path,method);
-        }catch (Exception e){
-            log.error("getInterfaceInfo error",e);
-        }
-        if(interfaceInfo == null){
-            return handleNoAuth(response);
-        }
-        // todo 是否还有调用次数
+//        InterfaceInfo interfaceInfo = null;
+//        try{
+//            interfaceInfo = innerInterfaceInfoService.getInterfaceInfo(path,method);
+//        }catch (Exception e){
+//            log.error("getInterfaceInfo error",e);
+//        }
+//        if(interfaceInfo == null){
+//            return handleNoAuth(response);
+//        }
 
-        return handleResponse(exchange,chain,interfaceInfo.getId(), user.getId());
+        // todo 是否还有调用次数
+        return chain.filter(exchange);
+//        return handleResponse(exchange,chain,interfaceInfo.getId(), user.getId());
     }
 
     /**
@@ -178,4 +179,19 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
     public int getOrder() {
         return -1;
     }
+
+    private String resolveBodyFromRequest(ServerHttpRequest serverHttpRequest) {
+        //获取请求体
+        Flux<DataBuffer> body = serverHttpRequest.getBody();
+
+        AtomicReference<String> bodyRef = new AtomicReference<>();
+        body.subscribe(buffer -> {
+            CharBuffer charBuffer = StandardCharsets.UTF_8.decode(buffer.asByteBuffer());
+            DataBufferUtils.release(buffer);
+            bodyRef.set(charBuffer.toString());
+        });
+        //获取request body
+        return bodyRef.get();
+    }
+
 }

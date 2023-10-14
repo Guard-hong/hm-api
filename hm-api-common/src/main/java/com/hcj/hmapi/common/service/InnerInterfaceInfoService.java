@@ -1,6 +1,5 @@
 package com.hcj.hmapi.common.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.hcj.hmapi.common.model.entity.InterfaceInfo;
 
 /**

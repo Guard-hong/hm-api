@@ -1,7 +1,7 @@
 package com.hcj.hmapiinterface.controller;
 
-import com.hcj.hmapiclientsdk.model.User;
-import com.hcj.hmapiclientsdk.utils.SignUtils;
+import com.hcj.hmapiinterface.model.Test;
+import com.hcj.hmapiinterface.model.User;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,10 +28,7 @@ public class NameController {
 
     @PostMapping("/user")
     public String getNameByPost(@RequestBody User user, HttpServletRequest request){
-        String accessKey = request.getHeader("accessKey");
-        String body = request.getHeader("body");
-        String sign = request.getHeader("sign");
-        String result =  "POST 你的名字是"+user.getUsername();
-        return result;
+        Test test = new Test(user.getUsername(), "1232", "432@xx.com");
+        return test.toString();
     }
 }

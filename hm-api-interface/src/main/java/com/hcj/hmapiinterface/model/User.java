@@ -1,10 +1,10 @@
-package com.hcj.hmapiclientsdk.model;
+package com.hcj.hmapiinterface.model;
 
 import lombok.Data;
 
 /**
  * @Author:HCJ
- * @DateTime:2023/10/2
+ * @DateTime:2023/10/14
  * @Description:
  **/
 @Data

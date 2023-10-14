@@ -8,16 +8,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 统一响应类
  * @Author:HCJ
  * @DateTime:2023/10/14
  * @Description:
  **/
 @Data
 public class UnifyResponse implements Serializable {
-    private Map<String,Object> responseParams = new HashMap<>();
+    /**
+     * 响应数据（json）
+     */
+    private String data;
 
-    @JsonAnyGetter
-    public Map<String,Object> getResponseParams(){
-        return responseParams;
-    }
 }
