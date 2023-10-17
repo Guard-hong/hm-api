@@ -1,8 +1,7 @@
 package com.hcj.hmapi.common.service;
 
 
-import com.hcj.hmapi.common.model.entity.User;
-
+import com.hcj.hmapi.common.model.vo.UserVO;
 /**
  * 用户服务
  *
@@ -15,5 +14,5 @@ public interface InnerUserService{
      * @param accessKey
      * @return
      */
-    User getInvokeUser(String accessKey);
+    UserVO getInvokeUser(String accessKey);
 }

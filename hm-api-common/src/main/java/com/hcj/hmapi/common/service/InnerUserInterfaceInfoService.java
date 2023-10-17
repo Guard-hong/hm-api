@@ -1,10 +1,5 @@
 package com.hcj.hmapi.common.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.hcj.hmapi.common.model.entity.InterfaceInfo;
-import com.hcj.hmapi.common.model.entity.User;
-import com.hcj.hmapi.common.model.entity.UserInterfaceInfo;
-
 /**
 * @author 洪
 * @description 针对表【user_interface_info(用户调用接口关系)】的数据库操作Service

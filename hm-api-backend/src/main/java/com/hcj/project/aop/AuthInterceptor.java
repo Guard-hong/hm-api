@@ -5,6 +5,7 @@ import com.hcj.hmapi.common.model.entity.User;
 import com.hcj.project.annotation.AuthCheck;
 import com.hcj.project.common.ErrorCode;
 import com.hcj.project.exception.BusinessException;
+import com.hcj.project.model.vo.UserVO;
 import com.hcj.project.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -48,7 +49,7 @@ public class AuthInterceptor {
         RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
         HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
         // 当前登录用户
-        User user = userService.getLoginUser(request);
+        UserVO user = userService.getLoginUser(request);
         // 拥有任意权限即通过
         if (CollectionUtils.isNotEmpty(anyRole)) {
             String userRole = user.getUserRole();

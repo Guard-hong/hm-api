@@ -6,16 +6,16 @@ import java.io.Serializable;
 
 /**
  * @Author: QiMu
- * @Date: 2023/09/04 11:34:12
+ * @Date: 2023/09/10 10:33:34
  * @Version: 1.0
- * @Description: 用户登录请求体
+ * @Description: 用户绑定电子邮件请求
  */
 @Data
-public class UserLoginRequest implements Serializable {
+public class UserBindEmailRequest implements Serializable {
 
     private static final long serialVersionUID = 3191241716373120793L;
 
-    private String userAccount;
+    private String emailAccount;
 
-    private String userPassword;
+    private String captcha;
 }

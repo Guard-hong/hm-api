@@ -1,11 +1,13 @@
 package com.hcj.project.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hcj.hmapi.common.model.entity.User;
-
+import com.hcj.project.model.entity.User;
 
 /**
- * @Entity com.hcj.project.model.domain.User
+ * @Author: QiMu
+ * @Date: 2023/09/15 09:31:49
+ * @Version: 1.0
+ * @Description: 用户映射器
  */
 public interface UserMapper extends BaseMapper<User> {
 

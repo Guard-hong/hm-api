@@ -4,7 +4,7 @@ spring:
   # DataSource Config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hapi
+    url: jdbc:mysql://localhost:3306/hm_api
     username: root
     password: hcj
   mvc:
@@ -19,6 +19,17 @@ spring:
     port: 6379
     host: 192.168.144.131
     database: 0
+  # email 配置
+  mail:
+    host: smtp.qq.com
+    username: 334107360@qq.com
+    password: hong.chen.jie.
+    emailFrom: 334107360@qq.com
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
 server:
   port: 7529
   servlet:
