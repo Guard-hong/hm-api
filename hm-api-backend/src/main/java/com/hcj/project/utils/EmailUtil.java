@@ -19,8 +19,8 @@ import static com.hcj.project.constant.EmailConstant.*;
 
 
 /**
- * @Author: QiMu
- * @Date: 2023/09/03 08:51:11
+ * @Author: hcj
+ * @Date: 2023/10/03 08:51:11
  * @Version: 1.0
  * @Description: 电子邮件生成内容实用程序
  */

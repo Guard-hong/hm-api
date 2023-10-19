@@ -1,8 +1,8 @@
 package com.hcj.project.constant;
 
 /**
- * @Author: QiMu
- * @Date: 2023/09/03 11:24:40
+ * @Author: hcj
+ * @Date: 2023/10/03 11:24:40
  * @Version: 1.0
  * @Description: 电子邮件常量
  */

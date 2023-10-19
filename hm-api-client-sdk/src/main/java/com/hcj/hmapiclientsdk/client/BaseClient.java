@@ -37,7 +37,6 @@ public abstract class BaseClient {
         headers.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         String encodedBody = SecureUtil.md5(body);
         headers.put("body",encodedBody);
-//        headers.put("Content-Type","application/json");
         headers.put("accessKey",identification.getAccessKey());
         headers.put("sign", SignUtils.genSign(encodedBody,identification.getSecretKey()));
         // todo 增加请求头，增强完整性和安全性

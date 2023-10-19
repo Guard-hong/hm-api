@@ -5,8 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @Author: QiMu
- * @Date: 2023/09/20 11:42:22
+ * @Author: hcj
+ * @Date: 2023/10/20 11:42:22
  * @Version: 1.0
  * @Description: 用户取消绑定电子邮件请求
  */

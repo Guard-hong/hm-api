@@ -33,7 +33,7 @@ public interface UserConstant {
     /**
      * 盐值，混淆密码
      */
-    String SALT = "qimu";
+    String SALT = "hcj";
     /**
      * ak/sk 混淆
      */

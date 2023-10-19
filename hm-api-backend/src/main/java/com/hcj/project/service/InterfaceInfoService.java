@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.hcj.hmapi.common.model.entity.InterfaceInfo;
 
 /**
- * @Author: QiMu
- * @Date: 2023/09/15 09:32:11
+ * @Author: hcj
+ * @Date: 2023/10/15 09:32:11
  * @Version: 1.0
  * @Description: 接口信息服务
  */

@@ -37,7 +37,7 @@ import static com.hcj.project.constant.UserConstant.*;
 /**
  * 用户服务实现类
  *
- * @author qimu
+ * @author hcj
  */
 @Service
 @Slf4j

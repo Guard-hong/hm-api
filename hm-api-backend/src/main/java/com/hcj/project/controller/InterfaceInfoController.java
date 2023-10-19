@@ -7,6 +7,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import com.hcj.hmapi.common.model.entity.InterfaceInfo;
+import com.hcj.hmapiclientsdk.client.HmApiClient;
+import com.hcj.hmapiclientsdk.model.hmapiclient.Identification;
+import com.hcj.hmapiclientsdk.model.request.UnifyRequest;
 import com.hcj.project.common.*;
 import com.hcj.project.exception.BusinessException;
 
@@ -24,8 +27,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
+
+import static java.lang.Character.toUpperCase;
 
 /**
  * 接口管理
@@ -41,6 +47,10 @@ public class InterfaceInfoController {
     private InterfaceInfoService interfaceInfoService;
     @Resource
     private UserService userService;
+    @Resource
+    private HmApiClient hmApiClient;
+
+    private final String GET_METHOD = "get";
 
     private final Gson gson = new Gson();
     /**
@@ -83,6 +93,7 @@ public class InterfaceInfoController {
     @PostMapping("/invoke")
     @Transactional(rollbackFor = Exception.class)
     public BaseResponse<Object> invokeInterface(@RequestBody InvokeRequest invokeRequest, HttpServletRequest request) {
+
         if (ObjectUtils.anyNull(invokeRequest, invokeRequest.getId()) || invokeRequest.getId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -109,7 +120,31 @@ public class InterfaceInfoController {
         UserVO loginUser = userService.getLoginUser(request);
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
-        return null;
+        try {
+            Identification identification = new Identification();
+            identification.setAccessKey(accessKey);
+            identification.setSecretKey(secretKey);
+            UnifyRequest unifyRequest = new UnifyRequest();
+            unifyRequest.setPath(interfaceInfo.getUrl());
+            unifyRequest.setMethod(interfaceInfo.getMethod());
+            unifyRequest.setRequestParams(params);
+            // todo 通过反射调用 hmApiClient 中对应的接口方法
+            String functionName = getFunctionName(GET_METHOD, interfaceInfo.getUrl());
+            Class<HmApiClient> hmApiClientClass = HmApiClient.class;
+            Method method = hmApiClientClass.getMethod(functionName, Identification.class, UnifyRequest.class);
+            Object invoke = method.invoke(hmApiClient, identification, unifyRequest);
+            System.out.println(invoke);
+            return ResultUtils.success(invoke);
+
+//            CurrencyRequest currencyRequest = new CurrencyRequest();
+//            currencyRequest.setMethod(interfaceInfo.getMethod());
+//            currencyRequest.setPath(interfaceInfo.getUrl());
+//            currencyRequest.setRequestParams(params);
+//            ResultResponse response = apiService.request(HmApiClient, currencyRequest);
+//            return ResultUtils.success(response.getData());
+        } catch (Exception e) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, e.getMessage());
+        }
     }
 
     /**
@@ -127,4 +162,11 @@ public class InterfaceInfoController {
         return ResultUtils.success(interfaceInfo);
     }
 
+    private String getFunctionName(String method,String url){
+        int lastIndexOf = url.lastIndexOf("/");
+        String path = url.substring(lastIndexOf + 1);
+        char[] chars = path.toCharArray();
+        chars[0] = toUpperCase(chars[0]);
+        return method+ String.valueOf(chars);
+    }
 }

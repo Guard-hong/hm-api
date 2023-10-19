@@ -5,8 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @Author: QiMu
- * @Date: 2023/09/04 11:34:12
+ * @Author: hcj
+ * @Date: 2023/10/04 11:34:12
  * @Version: 1.0
  * @Description: 用户登录请求体
  */

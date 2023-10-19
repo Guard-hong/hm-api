@@ -3,7 +3,7 @@ package com.hcj.project.model.dto.interfaceinfo;
 import lombok.Data;
 
 /**
- * @Author: QiMu
+ * @Author: hcj
  * @Date: 2023年09月22日 17:40
  * @Version: 1.0
  * @Description:

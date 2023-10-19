@@ -7,8 +7,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @Author: QiMu
- * @Date: 2023/09/04 11:31:52
+ * @Author: hcj
+ * @Date: 2023/10/04 11:31:52
  * @Version: 1.0
  * @Description: 用户
  */

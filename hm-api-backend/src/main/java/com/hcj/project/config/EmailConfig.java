@@ -5,8 +5,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author: QiMu
- * @Date: 2023/09/10 12:21:53
+ * @Author: hcj
+ * @Date: 2023/10/10 12:21:53
  * @Version: 1.0
  * @Description: 电子邮件配置
  */

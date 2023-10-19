@@ -7,8 +7,8 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 /**
- * @Author: QiMu
- * @Date: 2023/09/04 11:34:17
+ * @Author: hcj
+ * @Date: 2023/10/04 11:34:17
  * @Version: 1.0
  * @Description: 用户查询请求
  */
