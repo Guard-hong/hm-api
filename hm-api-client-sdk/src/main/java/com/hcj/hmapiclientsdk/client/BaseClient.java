@@ -50,11 +50,9 @@ public abstract class BaseClient {
      * @return
      */
     private HttpResponse doRequest(Identification identification,UnifyRequest unifyRequest){
-        String gatewayHost = GatewayHostConstant.GATEWAY_HOST;
         String method = unifyRequest.getMethod().trim().toUpperCase();
         String path = unifyRequest.getPath().trim(); // path: /api/xx/*
         Map<String, Object> requestParams = unifyRequest.getRequestParams();
-        path = gatewayHost + path;
         if(! MethodEnum.getValues().contains(method)){
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR,"请求方法不存在");
         }
@@ -78,13 +76,8 @@ public abstract class BaseClient {
             }
         }
         log.info("{}请求路径是： {}",method,path);
-        String s = JSONUtil.toJsonStr(unifyRequest);
-
-        System.out.println(s);
-        System.out.println("request = "+JSONUtil.toJsonStr(unifyRequest.getRequestParams()));
         return httpRequest
                 .addHeaders(getHeaders(identification,JSONUtil.toJsonStr(unifyRequest)))
-                .body(JSONUtil.toJsonStr(unifyRequest.getRequestParams()))
                 .execute();
     }
 

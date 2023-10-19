@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class ApiController {
 
-    @GetMapping("/poisonousChickenSoupResponse")
-    public PoisonousChickenSoupResponse getPoisonousChickenSoupResponse(){
+    @GetMapping("/poisonousChickenSoup")
+    public PoisonousChickenSoupResponse getPoisonousChickenSoup(){
         String url = "https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json";
         String res = RequestUtils.get(url);
         PoisonousChickenSoupResponse poisonousChickenSoupResponse =

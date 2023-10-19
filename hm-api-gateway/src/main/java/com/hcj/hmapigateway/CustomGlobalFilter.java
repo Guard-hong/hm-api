@@ -1,8 +1,11 @@
 package com.hcj.hmapigateway;
 
+import com.hcj.hmapi.common.model.entity.InterfaceInfo;
+import com.hcj.hmapi.common.model.vo.UserVO;
 import com.hcj.hmapi.common.service.InnerInterfaceInfoService;
-import com.hcj.hmapi.common.service.InnerUserInterfaceInfoService;
+import com.hcj.hmapi.common.service.InnerUserInterfaceInvokeService;
 import com.hcj.hmapi.common.service.InnerUserService;
+import com.hcj.hmapiclientsdk.utils.SignUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.reactivestreams.Publisher;
@@ -46,9 +49,11 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
     private InnerUserService innerUserService;
 
     @DubboReference
-    private InnerUserInterfaceInfoService innerUserInterfaceInfoService;
+    private InnerUserInterfaceInvokeService innerUserInterfaceInvokeService;
 
     private static final String INTERFACE_HOST = "http://localhost:8123";
+
+    public static final String GATEWAY_HOST = "http://localhost:8090";
 
     private List<String> IP_WHITE_LIST = Arrays.asList("127.0.0.1");
     @Override
@@ -74,34 +79,34 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         String nonce = headers.getFirst("nonce");
         String timestamp = headers.getFirst("timestamp");
         // todo 用户鉴权参数校验
-//        User user = null;
-//        try{
-//            user = innerUserService.getInvokeUser(accessKey);
-//        } catch (Exception e){
-//            log.error("getInvokeUser error",e);
-//        }
-//        if(user == null){
-//            return handleNoAuth(response);
-//        }
-//        String secretKey = user.getSecretKey();
-//        String genSign = SignUtils.genSign(body, secretKey);
-//        if(sign==null || !sign.equals(genSign)){
-//            return handleNoAuth(response);
-//        }
-        // 接口是否存在
-//        InterfaceInfo interfaceInfo = null;
-//        try{
-//            interfaceInfo = innerInterfaceInfoService.getInterfaceInfo(path,method);
-//        }catch (Exception e){
-//            log.error("getInterfaceInfo error",e);
-//        }
-//        if(interfaceInfo == null){
-//            return handleNoAuth(response);
-//        }
+        UserVO user = null;
+        try{
+            user = innerUserService.getInvokeUser(accessKey);
+        } catch (Exception e){
+            log.error("getInvokeUser error",e);
+        }
+        if(user == null){
+            return handleNoAuth(response);
+        }
+        String secretKey = user.getSecretKey();
+        String genSign = SignUtils.genSign(body, secretKey);
+        if(sign==null || !sign.equals(genSign)){
+            return handleNoAuth(response);
+        }
+        //接口是否存在
+        InterfaceInfo interfaceInfo = null;
+        try{
+            interfaceInfo = innerInterfaceInfoService.getInterfaceInfo(GATEWAY_HOST+path,method);
+        }catch (Exception e){
+            log.error("getInterfaceInfo error",e);
+        }
+        if(interfaceInfo == null){
+            return handleNoAuth(response);
+        }
 
         // todo 是否还有调用次数
-        return chain.filter(exchange);
-//        return handleResponse(exchange,chain,interfaceInfo.getId(), user.getId());
+//        return chain.filter(exchange);
+        return handleResponse(exchange,chain,interfaceInfo.getId(), user.getId());
     }
 
     /**
@@ -133,7 +138,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
                                     fluxBody.map(dataBuffer -> {
                                         // 7. 调用成功，接口调用次数 + 1 invokeCount
                                         try {
-                                            innerUserInterfaceInfoService.invokeCount(interfaceInfoId, userId);
+                                            innerUserInterfaceInvokeService.invoke(interfaceInfoId, userId);
                                         } catch (Exception e) {
                                             log.error("invokeCount error", e);
                                         }

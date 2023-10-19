@@ -2,7 +2,7 @@ package com.hcj.project.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hcj.hmapi.common.model.entity.UserInterfaceInfo;
+import com.hcj.hmapi.common.model.entity.UserInterfaceInvoke;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import java.util.List;
 * @createDate 2023-10-05 23:01:24
 * @Entity com.hcj.project.model.entity.UserInterfaceInfo
 */
-public interface UserInterfaceInfoMapper extends BaseMapper<UserInterfaceInfo> {
-    List<UserInterfaceInfo> listTopInvokeInterfaceInfo(int limit);
+public interface UserInterfaceInvokeMapper extends BaseMapper<UserInterfaceInvoke> {
+
 }
 
 

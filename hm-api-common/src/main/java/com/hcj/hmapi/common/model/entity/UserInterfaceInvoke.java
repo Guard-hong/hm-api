@@ -7,59 +7,48 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 用户调用接口关系
- * @TableName user_interface_info
+ * @Author: hcj
+ * @Date: 2023/11/04 11:30:31
+ * @Version: 1.0
+ * @Description: 用户接口调用表
  */
-@TableName(value ="user_interface_info")
+@TableName(value = "user_interface_invoke")
 @Data
-public class UserInterfaceInfo implements Serializable {
+public class UserInterfaceInvoke implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
-     * 主键
+     * id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
-
     /**
-     * 调用用户 id
+     * 调用人id
      */
     private Long userId;
-
     /**
-     * 接口 id
+     * 接口id
      */
-    private Long interfaceInfoId;
-
+    private Long interfaceId;
     /**
      * 总调用次数
      */
-    private Integer totalNum;
-
+    private Long totalInvokes;
     /**
-     * 剩余调用次数
-     */
-    private Integer leftNum;
-
-    /**
-     * 0-正常，1-禁用
+     * 调用状态（0- 正常 1- 封号）
      */
     private Integer status;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 更新时间
      */
     private Date updateTime;
-
     /**
-     * 是否删除(0-未删, 1-已删)
+     * 是否删除
      */
     @TableLogic
     private Integer isDelete;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 }

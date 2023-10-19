@@ -19,6 +19,7 @@ import com.hcj.project.model.enums.InterfaceStatusEnum;
 import com.hcj.project.model.vo.UserVO;
 import com.hcj.project.service.InterfaceInfoService;
 import com.hcj.project.service.UserService;
+import com.hcj.project.utils.ParamUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.BeanUtils;
@@ -121,13 +122,9 @@ public class InterfaceInfoController {
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
         try {
-            Identification identification = new Identification();
-            identification.setAccessKey(accessKey);
-            identification.setSecretKey(secretKey);
-            UnifyRequest unifyRequest = new UnifyRequest();
-            unifyRequest.setPath(interfaceInfo.getUrl());
-            unifyRequest.setMethod(interfaceInfo.getMethod());
-            unifyRequest.setRequestParams(params);
+            Identification identification = ParamUtil.getIdentification(accessKey, secretKey);
+            UnifyRequest unifyRequest =
+                    ParamUtil.getUnifyRequest(interfaceInfo.getUrl(), interfaceInfo.getMethod(), params);
             // todo 通过反射调用 hmApiClient 中对应的接口方法
             String functionName = getFunctionName(GET_METHOD, interfaceInfo.getUrl());
             Class<HmApiClient> hmApiClientClass = HmApiClient.class;
@@ -135,13 +132,6 @@ public class InterfaceInfoController {
             Object invoke = method.invoke(hmApiClient, identification, unifyRequest);
             System.out.println(invoke);
             return ResultUtils.success(invoke);
-
-//            CurrencyRequest currencyRequest = new CurrencyRequest();
-//            currencyRequest.setMethod(interfaceInfo.getMethod());
-//            currencyRequest.setPath(interfaceInfo.getUrl());
-//            currencyRequest.setRequestParams(params);
-//            ResultResponse response = apiService.request(HmApiClient, currencyRequest);
-//            return ResultUtils.success(response.getData());
         } catch (Exception e) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, e.getMessage());
         }
