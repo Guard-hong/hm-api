@@ -1,6 +1,7 @@
 package com.hcj.hmapiclientsdk.model.response;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,9 +16,16 @@ import java.util.Map;
  **/
 @Data
 public class UnifyResponse implements Serializable {
-    /**
-     * 响应数据（json）
-     */
-    private String data;
+    private Map<String, Object> data = new HashMap<>();
+
+    @JsonAnyGetter
+    public Map<String, Object> getData() {
+        return data;
+    }
+
+    @JsonAnySetter
+    public void setData(Map<String, Object> data) {
+        this.data = data;
+    }
 
 }

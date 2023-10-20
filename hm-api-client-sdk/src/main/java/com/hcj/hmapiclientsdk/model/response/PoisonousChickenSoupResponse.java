@@ -8,7 +8,7 @@ import lombok.Data;
  * @Description:
  **/
 @Data
-public class PoisonousChickenSoupResponse {
+public class PoisonousChickenSoupResponse extends UnifyResponse  {
     /**
      * 毒鸡汤文本
      */

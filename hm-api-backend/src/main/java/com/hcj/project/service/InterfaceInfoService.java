@@ -12,13 +12,6 @@ import com.hcj.hmapi.common.model.entity.InterfaceInfo;
  */
 public interface InterfaceInfoService extends IService<InterfaceInfo> {
 
-    /**
-     * 校验
-     *
-     * @param add           是否为创建校验
-     * @param interfaceInfo 接口信息
-     */
-    void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add);
 
     /**
      * 更新总调用数

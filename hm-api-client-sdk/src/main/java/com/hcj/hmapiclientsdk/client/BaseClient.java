@@ -85,13 +85,17 @@ public abstract class BaseClient {
      * 响应
      * @param identification
      * @param unifyRequest
-     * @param responseType
-     * @param <T>
      * @return
      */
     private <T> T doResponse(Identification identification,UnifyRequest unifyRequest,Class<T> responseType){
         HttpResponse httpResponse = doRequest(identification,unifyRequest);
         T res = JSONUtil.toBean(httpResponse.body(), responseType);
+        return res;
+    }
+
+    public String doResponse(Identification identification,UnifyRequest unifyRequest){
+        HttpResponse httpResponse = doRequest(identification,unifyRequest);
+        String res = httpResponse.body();
         return res;
     }
 
@@ -103,8 +107,12 @@ public abstract class BaseClient {
      * @return
      */
     public <T> T request(Identification identification,UnifyRequest unifyRequest,Class<T> responseType){
+        if(identification==null || identification.getAccessKey()==null ||identification==null){
+            throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
+        }
         return doResponse(identification,unifyRequest,responseType);
     }
+
 
     /**
      * 给get请求添加请求参数

@@ -10,6 +10,7 @@ import com.hcj.hmapi.common.model.entity.InterfaceInfo;
 import com.hcj.hmapiclientsdk.client.HmApiClient;
 import com.hcj.hmapiclientsdk.model.hmapiclient.Identification;
 import com.hcj.hmapiclientsdk.model.request.UnifyRequest;
+import com.hcj.hmapiclientsdk.model.response.UnifyResponse;
 import com.hcj.project.common.*;
 import com.hcj.project.exception.BusinessException;
 
@@ -125,13 +126,15 @@ public class InterfaceInfoController {
             Identification identification = ParamUtil.getIdentification(accessKey, secretKey);
             UnifyRequest unifyRequest =
                     ParamUtil.getUnifyRequest(interfaceInfo.getUrl(), interfaceInfo.getMethod(), params);
-            // todo 通过反射调用 hmApiClient 中对应的接口方法
+            // 通过反射调用 hmApiClient 中对应的接口方法
             String functionName = getFunctionName(GET_METHOD, interfaceInfo.getUrl());
             Class<HmApiClient> hmApiClientClass = HmApiClient.class;
             Method method = hmApiClientClass.getMethod(functionName, Identification.class, UnifyRequest.class);
-            Object invoke = method.invoke(hmApiClient, identification, unifyRequest);
-            System.out.println(invoke);
-            return ResultUtils.success(invoke);
+//            Object invoke = method.invoke(hmApiClient, identification, unifyRequest);
+            String invoke = (String) method.invoke(hmApiClient, identification, unifyRequest);
+            Map<String, Object> data =  new Gson().fromJson(invoke, new TypeToken<Map<String, Object>>() {
+            }.getType());
+            return ResultUtils.success(data);
         } catch (Exception e) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, e.getMessage());
         }

@@ -59,18 +59,11 @@ public class InterfaceInfo implements Serializable {
      * 描述信息
      */
     private String description;
-    /**
-     * 请求示例
-     */
-    private String requestExample;
+
     /**
      * 减少积分个数
      */
     private Integer reduceScore;
-    /**
-     * 接口头像
-     */
-    private String avatarUrl;
     /**
      * 请求头
      */

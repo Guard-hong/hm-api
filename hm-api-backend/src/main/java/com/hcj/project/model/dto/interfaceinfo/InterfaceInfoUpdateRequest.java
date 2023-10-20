@@ -40,19 +40,11 @@ public class InterfaceInfoUpdateRequest implements Serializable {
      * 调用接口扣费个数
      */
     private Integer reduceScore;
-    /**
-     * 接口头像
-     */
-    private String avatarUrl;
 
     /**
      * 描述信息
      */
     private String description;
-    /**
-     * 请求示例
-     */
-    private String requestExample;
     /**
      * 请求头
      */

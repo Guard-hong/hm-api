@@ -29,6 +29,7 @@ public class UserInterfaceInvokeServiceImpl extends ServiceImpl<UserInterfaceInv
     private InterfaceInfoService interfaceInfoService;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean invoke(long interfaceInfoId, long userId) {
         // 判断
         if (interfaceInfoId <= 0 || userId <= 0) {
