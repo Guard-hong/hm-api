@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="be9ba5a6-f845-4787-91d5-4655d5dfed75" name="变更" comment="添加新接口，统一响应类">
+      <change afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/JsonToMapUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/constant/ValidateParamConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/HoroscopeParams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/IpInfoParams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/MotivationalEnglishParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/InterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/InterfaceInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/EmailUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/ParamUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/ParamUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/RedissonLockUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/RedissonLockUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-client-sdk/src/main/java/com/hcj/hmapiclientsdk/client/BaseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-client-sdk/src/main/java/com/hcj/hmapiclientsdk/client/BaseClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-client-sdk/src/main/java/com/hcj/hmapiclientsdk/client/HmApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-client-sdk/src/main/java/com/hcj/hmapiclientsdk/client/HmApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/QQAvatarParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/QQAvatarParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/RandomWallpaperParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/RandomWallpaperParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/WeatherParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/WeatherParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/utils/RequestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/utils/RequestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/utils/ResponseUtils.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Maven\repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../environment/Maven/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\environment\Maven\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Wf50kgKaopApdA5KaYwiQR62Af" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="reactor" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\项目\API开放平台\hm-api\hm-api-interface\src\main\java\com\hcj\hmapiinterface" />
+      <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\java\com\hcj\project\model\dto" />
+      <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\java\com\hcj\project\model\vo" />
+      <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\java\com\hcj\project\service\impl" />
+      <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\java\com\hcj\project\service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hcj.hmapiclientsdk.utils" />
+      <recent name="com.hcj.project.config" />
+      <recent name="com.hcj.hmapi.common.model.vo" />
+      <recent name="com.hcj.hmapi.common.model.entity" />
+      <recent name="com.hcj.project.model.entity" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MyApplication">
+    <configuration name="HmApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="hm-api-gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hcj.hmapigateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hcj.hmapigateway.HmApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HmApiInterfaceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="hm-api-interface" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hcj.hmapiinterface.HmApiInterfaceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="hm-api-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hcj.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hcj.project.MyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.HmApiGatewayApplication" />
+        <item itemvalue="Spring Boot.MyApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="be9ba5a6-f845-4787-91d5-4655d5dfed75" name="变更" comment="" />
+      <created>1697110658516</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697110658516</updated>
+      <workItem from="1697110658683" duration="770000" />
+      <workItem from="1697164478145" duration="4036000" />
+      <workItem from="1697175222043" duration="5107000" />
+      <workItem from="1697181774690" duration="174000" />
+      <workItem from="1697181967747" duration="270000" />
+      <workItem from="1697182255592" duration="506000" />
+      <workItem from="1697213650445" duration="6201000" />
+      <workItem from="1697259833276" duration="1173000" />
+      <workItem from="1697263002078" duration="7852000" />
+      <workItem from="1697271491612" duration="1839000" />
+      <workItem from="1697275624247" duration="9579000" />
+      <workItem from="1697343614553" duration="1788000" />
+      <workItem from="1697363924882" duration="3670000" />
+      <workItem from="1697434063251" duration="648000" />
+      <workItem from="1697468392444" duration="2394000" />
+      <workItem from="1697505265132" duration="1282000" />
+      <workItem from="1697506566133" duration="7140000" />
+      <workItem from="1697614163028" duration="5353000" />
+      <workItem from="1697627629826" duration="360000" />
+      <workItem from="1697685203353" duration="19143000" />
+      <workItem from="1697782055324" duration="4845000" />
+      <workItem from="1697806077782" duration="15921000" />
+      <workItem from="1697865027552" duration="13109000" />
+    </task>
+    <task id="LOCAL-00001" summary="sdk0.02上线 (项目结构梳理)">
+      <created>1697169701505</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697169701505</updated>
+    </task>
+    <task id="LOCAL-00002" summary="后台接口完善与修改">
+      <created>1697514883411</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697514883411</updated>
+    </task>
+    <task id="LOCAL-00003" summary="invoke 接口完成反射调用sdk中的方法">
+      <created>1697693811204</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697693811204</updated>
+    </task>
+    <task id="LOCAL-00004" summary="流程完成">
+      <created>1697729628440</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697729628440</updated>
+    </task>
+    <task id="LOCAL-00005" summary="添加新接口，统一响应类">
+      <created>1697828837605</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697828837605</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sdk0.02上线 (项目结构梳理)" />
+    <MESSAGE value="后台接口完善与修改" />
+    <MESSAGE value="invoke 接口完成反射调用sdk中的方法" />
+    <MESSAGE value="流程完成" />
+    <MESSAGE value="添加新接口，统一响应类" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加新接口，统一响应类" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.core.io.buffer.NettyDataBufferFactory" memberName="byteBufAllocator" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
