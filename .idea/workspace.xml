@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be9ba5a6-f845-4787-91d5-4655d5dfed75" name="变更" comment="api接口开发完成">
-      <change afterPath="$PROJECT_DIR$/hm-api-backend/src/main/resources/email.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/hm-api-backend/src/main/resources/pay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/config/EmailConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/config/EmailConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/constant/EmailConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/constant/EmailConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-gateway/src/main/java/com/hcj/hmapigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-gateway/src/main/java/com/hcj/hmapigateway/CustomGlobalFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +167,7 @@
       <workItem from="1697685203353" duration="19143000" />
       <workItem from="1697782055324" duration="4845000" />
       <workItem from="1697806077782" duration="15921000" />
-      <workItem from="1697865027552" duration="18427000" />
+      <workItem from="1697865027552" duration="18754000" />
     </task>
     <task id="LOCAL-00001" summary="sdk0.02上线 (项目结构梳理)">
       <created>1697169701505</created>
@@ -223,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697881916569</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="发送邮箱修改">
+      <created>1697902652188</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697902652188</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +238,8 @@
     <MESSAGE value="流程完成" />
     <MESSAGE value="添加新接口，统一响应类" />
     <MESSAGE value="api接口开发完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="api接口开发完成" />
+    <MESSAGE value="发送邮箱修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="发送邮箱修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
