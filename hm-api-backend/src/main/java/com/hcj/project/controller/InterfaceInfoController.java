@@ -20,7 +20,8 @@ import com.hcj.project.model.enums.InterfaceStatusEnum;
 import com.hcj.project.model.vo.UserVO;
 import com.hcj.project.service.InterfaceInfoService;
 import com.hcj.project.service.UserService;
-import com.hcj.project.utils.ParamUtil;
+import com.hcj.project.utils.JsonToMapUtils;
+import com.hcj.project.utils.ParamUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.BeanUtils;
@@ -95,10 +96,14 @@ public class InterfaceInfoController {
     @PostMapping("/invoke")
     @Transactional(rollbackFor = Exception.class)
     public BaseResponse<Object> invokeInterface(@RequestBody InvokeRequest invokeRequest, HttpServletRequest request) {
-
         if (ObjectUtils.anyNull(invokeRequest, invokeRequest.getId()) || invokeRequest.getId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
+        // 获取登录用户
+        UserVO loginUser = userService.getLoginUser(request);
+        String accessKey = loginUser.getAccessKey();
+        String secretKey = loginUser.getSecretKey();
+        // 接口校验
         Long id = invokeRequest.getId();
         InterfaceInfo interfaceInfo = interfaceInfoService.getById(id);
         if (interfaceInfo == null) {
@@ -107,6 +112,8 @@ public class InterfaceInfoController {
         if (interfaceInfo.getStatus() != InterfaceStatusEnum.ONLINE.getValue()) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口未开启");
         }
+        // todo 接口必须参数校验
+
         // 构建请求参数
         List<InvokeRequest.Field> fieldList = invokeRequest.getRequestParams();
         String requestParams = "{}";
@@ -117,24 +124,14 @@ public class InterfaceInfoController {
             }
             requestParams = gson.toJson(jsonObject);
         }
-        Map<String, Object> params = new Gson().fromJson(requestParams, new TypeToken<Map<String, Object>>() {
-        }.getType());
-        UserVO loginUser = userService.getLoginUser(request);
-        String accessKey = loginUser.getAccessKey();
-        String secretKey = loginUser.getSecretKey();
+        Map<String, Object> params = JsonToMapUtils.stringToMap(requestParams);
         try {
-            Identification identification = ParamUtil.getIdentification(accessKey, secretKey);
+            Identification identification = ParamUtils.getIdentification(accessKey, secretKey);
             UnifyRequest unifyRequest =
-                    ParamUtil.getUnifyRequest(interfaceInfo.getUrl(), interfaceInfo.getMethod(), params);
-            // 通过反射调用 hmApiClient 中对应的接口方法
-            String functionName = getFunctionName(GET_METHOD, interfaceInfo.getUrl());
-            Class<HmApiClient> hmApiClientClass = HmApiClient.class;
-            Method method = hmApiClientClass.getMethod(functionName, Identification.class, UnifyRequest.class);
-//            Object invoke = method.invoke(hmApiClient, identification, unifyRequest);
-            String invoke = (String) method.invoke(hmApiClient, identification, unifyRequest);
-            Map<String, Object> data =  new Gson().fromJson(invoke, new TypeToken<Map<String, Object>>() {
-            }.getType());
-            return ResultUtils.success(data);
+                    ParamUtils.getUnifyRequest(interfaceInfo.getUrl(), interfaceInfo.getMethod(), params);
+            // 调用统一请求 sdk中不在校验参数，使用统一请求，参数校验交给调用sdk发起的一方和使用sdk接受请求的一方
+            String data = hmApiClient.doUnifyRequest(identification, unifyRequest);
+            return ResultUtils.success(JsonToMapUtils.stringToMap(data));
         } catch (Exception e) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, e.getMessage());
         }

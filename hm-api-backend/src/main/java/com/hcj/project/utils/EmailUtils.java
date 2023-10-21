@@ -25,7 +25,7 @@ import static com.hcj.project.constant.EmailConstant.*;
  * @Description: 电子邮件生成内容实用程序
  */
 @Slf4j
-public class EmailUtil {
+public class EmailUtils {
 
 
     /**

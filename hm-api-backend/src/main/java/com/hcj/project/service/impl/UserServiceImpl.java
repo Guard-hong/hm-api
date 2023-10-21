@@ -14,7 +14,7 @@ import com.hcj.project.model.entity.User;
 import com.hcj.project.model.enums.UserAccountStatusEnum;
 import com.hcj.project.model.vo.UserVO;
 import com.hcj.project.service.UserService;
-import com.hcj.project.utils.RedissonLockUtil;
+import com.hcj.project.utils.RedissonLockUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -50,7 +50,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private RedisTemplate<String, String> redisTemplate;
 
     @Resource
-    private RedissonLockUtil redissonLockUtil;
+    private RedissonLockUtils redissonLockUtils;
 
     /**
      * 用户寄存器
@@ -91,7 +91,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "两次输入的密码不一致");
         }
         String redissonLock = ("userRegister_" + userAccount).intern();
-        return redissonLockUtil.redissonDistributedLocks(redissonLock, () -> {
+        return redissonLockUtils.redissonDistributedLocks(redissonLock, () -> {
             // 账户不能重复
             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("userAccount", userAccount);
@@ -169,7 +169,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             throw new BusinessException(ErrorCode.OPERATION_ERROR, "验证码输入有误");
         }
         String redissonLock = ("userEmailRegister_" + emailAccount).intern();
-        return redissonLockUtil.redissonDistributedLocks(redissonLock, () -> {
+        return redissonLockUtils.redissonDistributedLocks(redissonLock, () -> {
             // 账户不能重复
             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("userAccount", emailAccount);

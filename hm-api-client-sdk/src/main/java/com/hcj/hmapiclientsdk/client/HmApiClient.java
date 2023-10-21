@@ -22,50 +22,12 @@ import static com.hcj.hmapiclientsdk.constant.ValidateParamConstant.QQ_AVATAR_QQ
 public class HmApiClient extends BaseClient {
 
     /**
-     * 毒鸡汤
+     * 统一请求
      * @param identification
      * @param unifyRequest
      * @return
      */
-    public PoisonousChickenSoupResponse getPoisonousChickenSoup(Identification identification,UnifyRequest unifyRequest){
-        PoisonousChickenSoupResponse response = request(identification, unifyRequest, PoisonousChickenSoupResponse.class);
-        return response;
-    }
-
-    /**
-     * 随机壁纸
-     * @param identification
-     * @param unifyRequest
-     * @return
-     */
-    public ImageResponse getRandomWallpaper(Identification identification, UnifyRequest unifyRequest){
-        ImageResponse response = request(identification, unifyRequest, ImageResponse.class);
-        return response;
-    }
-
-    /**
-     * 获取指定qq的头像
-     * @param identification
-     * @param unifyRequest
-     * @return
-     */
-    public ImageResponse getQQAvatar(Identification identification,UnifyRequest unifyRequest){
-        // 参数校验
-        if(unifyRequest.getRequestParams().get(QQ_AVATAR_QQ) == null){
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        ImageResponse response = request(identification, unifyRequest, ImageResponse.class);
-        return response;
-    }
-
-    /**
-     * 获取天气
-     * @param identification
-     * @param unifyRequest
-     * @return
-     */
-    public String getWeather(Identification identification, UnifyRequest unifyRequest){
-        String res = doResponse(identification, unifyRequest);
-        return res;
+    public String doUnifyRequest(Identification identification,UnifyRequest unifyRequest){
+        return request(identification,unifyRequest);
     }
 }

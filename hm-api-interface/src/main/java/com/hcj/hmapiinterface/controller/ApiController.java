@@ -4,17 +4,13 @@ import cn.hutool.json.JSONUtil;
 import com.hcj.hmapiclientsdk.model.response.PoisonousChickenSoupResponse;
 import com.hcj.hmapiclientsdk.model.response.ImageResponse;
 import com.hcj.hmapiclientsdk.model.response.UnifyResponse;
-import com.hcj.hmapiinterface.model.QQAvatarParams;
-import com.hcj.hmapiinterface.model.RandomWallpaperParams;
-import com.hcj.hmapiinterface.model.WeatherParams;
-import com.hcj.hmapiinterface.utils.ResponseUtils;
+import com.hcj.hmapiinterface.model.params.*;
+import com.hcj.hmapiinterface.utils.RequestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.hcj.hmapiinterface.utils.RequestUtils.buildUrl;
-import static com.hcj.hmapiinterface.utils.RequestUtils.get;
 
 /**
  * @Author:HCJ
@@ -26,39 +22,62 @@ import static com.hcj.hmapiinterface.utils.RequestUtils.get;
 public class ApiController {
 
     @GetMapping("/poisonousChickenSoup")
-    public PoisonousChickenSoupResponse getPoisonousChickenSoup(){
-        String url = "https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json";
-        String res = get(url);
-        PoisonousChickenSoupResponse poisonousChickenSoupResponse =
-                JSONUtil.toBean(res, PoisonousChickenSoupResponse.class);
-        return poisonousChickenSoupResponse;
+    public UnifyResponse getPoisonousChickenSoup(){
+        String baseUrl = "https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json";
+        return RequestUtils.baseRequest(baseUrl);
     }
 
     @GetMapping("/randomWallpaper")
-    public ImageResponse getRandomWallpaper(RandomWallpaperParams randomWallpaperParams) throws Exception {
+    public UnifyResponse getRandomWallpaper(RandomWallpaperParams randomWallpaperParams) throws Exception {
         String baseUrl = "https://api.btstu.cn/sjbz/api.php";
-        String url = buildUrl(baseUrl, randomWallpaperParams);
+        String url = RequestUtils.buildUrl(baseUrl, randomWallpaperParams);
         if (StringUtils.isAllBlank(randomWallpaperParams.getLx(), randomWallpaperParams.getMethod())) {
             url = url + "?format=json";
         } else {
             url = url + "&format=json";
         }
-        String res = get(url);
-        return JSONUtil.toBean(res, ImageResponse.class);
+        return RequestUtils.baseRequest(url);
     }
 
     @GetMapping("/QQAvatar")
-    public ImageResponse getQQAvatar(QQAvatarParams qqAvatarParams) throws Exception {
+    public UnifyResponse getQQAvatar(QQAvatarParams qqAvatarParams) throws Exception {
         String baseUrl = "https://api.vvhan.com/api/qq";
-        String url = buildUrl(baseUrl, qqAvatarParams);
-        String res = get(url);
-        return JSONUtil.toBean(res, ImageResponse.class);
+        return RequestUtils.baseRequest(baseUrl,qqAvatarParams);
     }
 
     @GetMapping("/weather")
     public UnifyResponse getWeaker(WeatherParams weatherParams) {
         String baseUrl = "https://api.vvhan.com/api/weather";
-        UnifyResponse response = ResponseUtils.baseResponse(baseUrl, weatherParams);
-        return response;
+        return RequestUtils.baseRequest(baseUrl, weatherParams);
+    }
+
+    @GetMapping("/motivationalEnglish")
+    public UnifyResponse getMotivationalEnglish(MotivationalEnglishParams motivationalEnglishParams) {
+        String baseUrl = "https://api.vvhan.com/api/en";
+        return RequestUtils.baseRequest(baseUrl, motivationalEnglishParams);
+    }
+
+    @GetMapping("/wbhot")
+    public UnifyResponse getWbhot() {
+        String baseUrl = "https://api.vvhan.com/api/wbhot";
+        return RequestUtils.baseRequest(baseUrl);
+    }
+
+    @GetMapping("/ipInfo")
+    public UnifyResponse getIpInfo(IpInfoParams ipInfoParams) {
+        String baseUrl = "https://api.vvhan.com/api/getIpInfo";
+        return RequestUtils.baseRequest(baseUrl, ipInfoParams);
+    }
+
+    @GetMapping("/loveTalk")
+    public UnifyResponse getLoveTalk() {
+        String baseUrl = "https://api.vvhan.com/api/love?type=json";
+        return RequestUtils.baseRequest(baseUrl);
+    }
+
+    @GetMapping("/horoscope")
+    public UnifyResponse getHoroscope(HoroscopeParams horoscopeParams) {
+        String baseUrl = "https://api.vvhan.com/api/horoscope";
+        return RequestUtils.baseRequest(baseUrl,horoscopeParams);
     }
 }

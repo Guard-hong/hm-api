@@ -10,7 +10,7 @@ import java.util.Map;
  * @DateTime:2023/10/19
  * @Description:
  **/
-public class ParamUtil {
+public class ParamUtils {
 
     public static Identification getIdentification(String accessKey,String secretKey){
         Identification identification = new Identification();

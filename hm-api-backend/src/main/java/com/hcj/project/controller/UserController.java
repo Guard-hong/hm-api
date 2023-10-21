@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 
 import static com.hcj.project.constant.EmailConstant.*;
 import static com.hcj.project.constant.UserConstant.ADMIN_ROLE;
-import static com.hcj.project.utils.EmailUtil.buildEmailContent;
+import static com.hcj.project.utils.EmailUtils.buildEmailContent;
 
 /**
  * 用户接口

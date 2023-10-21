@@ -1,4 +1,4 @@
-package com.hcj.hmapiinterface.model;
+package com.hcj.hmapiinterface.model.params;
 
 import lombok.Data;
 
