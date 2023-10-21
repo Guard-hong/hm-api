@@ -68,7 +68,6 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         // 后续可以根据来源地址来做黑白名单
         MultiValueMap<String, String> getParams = request.getQueryParams();
         log.info("get请求参数: "+getParams);
-//        log.info("post请求参数: "+postParams);
         // 黑白名单
 
         // 用户鉴权

@@ -4,26 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be9ba5a6-f845-4787-91d5-4655d5dfed75" name="变更" comment="添加新接口，统一响应类">
-      <change afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/JsonToMapUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/constant/ValidateParamConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/HoroscopeParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/IpInfoParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/MotivationalEnglishParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/InterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/InterfaceInfoController.java" afterDir="false" />
+    <list default="true" id="be9ba5a6-f845-4787-91d5-4655d5dfed75" name="变更" comment="api接口开发完成">
+      <change afterPath="$PROJECT_DIR$/hm-api-backend/src/main/resources/email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hm-api-backend/src/main/resources/pay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/config/EmailConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/config/EmailConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/constant/EmailConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/constant/EmailConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/EmailUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/ParamUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/ParamUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/RedissonLockUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/RedissonLockUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-client-sdk/src/main/java/com/hcj/hmapiclientsdk/client/BaseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-client-sdk/src/main/java/com/hcj/hmapiclientsdk/client/BaseClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-client-sdk/src/main/java/com/hcj/hmapiclientsdk/client/HmApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-client-sdk/src/main/java/com/hcj/hmapiclientsdk/client/HmApiClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/controller/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/QQAvatarParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/QQAvatarParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/RandomWallpaperParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/RandomWallpaperParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/WeatherParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/model/params/WeatherParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/utils/RequestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/utils/RequestUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface/utils/ResponseUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hm-api-gateway/src/main/java/com/hcj/hmapigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/hm-api-gateway/src/main/java/com/hcj/hmapigateway/CustomGlobalFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,11 +64,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hm-api-interface/src/main/java/com/hcj/hmapiinterface" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hm-api-backend/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reactor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -88,11 +80,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\resources" />
       <recent name="D:\项目\API开放平台\hm-api\hm-api-interface\src\main\java\com\hcj\hmapiinterface" />
       <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\java\com\hcj\project\model\dto" />
       <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\java\com\hcj\project\model\vo" />
       <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\java\com\hcj\project\service\impl" />
-      <recent name="D:\项目\API开放平台\hm-api\hm-api-backend\src\main\java\com\hcj\project\service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.hcj.hmapiclientsdk.utils" />
@@ -145,8 +137,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.HmApiGatewayApplication" />
         <item itemvalue="Spring Boot.MyApplication" />
+        <item itemvalue="Spring Boot.HmApiGatewayApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +172,7 @@
       <workItem from="1697685203353" duration="19143000" />
       <workItem from="1697782055324" duration="4845000" />
       <workItem from="1697806077782" duration="15921000" />
-      <workItem from="1697865027552" duration="13109000" />
+      <workItem from="1697865027552" duration="18427000" />
     </task>
     <task id="LOCAL-00001" summary="sdk0.02上线 (项目结构梳理)">
       <created>1697169701505</created>
@@ -217,7 +209,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697828837605</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="api接口开发完成">
+      <created>1697881887444</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697881887444</updated>
+    </task>
+    <task id="LOCAL-00007" summary="api接口开发完成">
+      <created>1697881916569</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697881916569</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,9 +235,19 @@
     <MESSAGE value="invoke 接口完成反射调用sdk中的方法" />
     <MESSAGE value="流程完成" />
     <MESSAGE value="添加新接口，统一响应类" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加新接口，统一响应类" />
+    <MESSAGE value="api接口开发完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="api接口开发完成" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hm-api-backend/src/main/java/com/hcj/project/utils/EmailUtils.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.core.io.buffer.NettyDataBufferFactory" memberName="byteBufAllocator" />

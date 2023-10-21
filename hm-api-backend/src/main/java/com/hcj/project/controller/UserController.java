@@ -174,7 +174,7 @@ public class UserController {
         if (StringUtils.isBlank(emailAccount)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+            String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         if (!Pattern.matches(emailPattern, emailAccount)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "不合法的邮箱地址！");
         }

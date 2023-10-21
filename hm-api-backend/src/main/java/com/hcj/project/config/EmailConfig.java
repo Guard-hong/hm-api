@@ -14,5 +14,5 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "spring.mail")
 @Data
 public class EmailConfig {
-    private String emailFrom = "2483482026@qq.com";
+    private String emailFrom;
 }
