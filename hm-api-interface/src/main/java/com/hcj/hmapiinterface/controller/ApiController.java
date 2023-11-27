@@ -1,8 +1,5 @@
 package com.hcj.hmapiinterface.controller;
 
-import cn.hutool.json.JSONUtil;
-import com.hcj.hmapiclientsdk.model.response.PoisonousChickenSoupResponse;
-import com.hcj.hmapiclientsdk.model.response.ImageResponse;
 import com.hcj.hmapiclientsdk.model.response.UnifyResponse;
 import com.hcj.hmapiinterface.model.params.*;
 import com.hcj.hmapiinterface.utils.RequestUtils;

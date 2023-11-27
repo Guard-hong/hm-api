@@ -17,19 +17,26 @@ spring:
   # redis 配置
   redis:
     port: 6379
-    host: 192.168.144.131
+    host: 192.168.144.130
     database: 0
   # email 配置
   mail:
     host: smtp.qq.com
-    username: 334107360@qq.com
-    password: hong.chen.jie.
-    emailFrom: 334107360@qq.com
+    username: 3341073630@qq.com
+    password: fyyfdhxlghjpdbhg
+    emailFrom: 3341073630@qq.com
     properties:
       mail:
         smtp:
           ssl:
             enable: true
+  # servlet配置
+  servlet:
+    # 上传配置
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+
 server:
   port: 7529
   servlet:
@@ -43,10 +50,11 @@ mybatis-plus:
       logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
-hcj:
-  client:
-    access-key:
-    secret-key:
+hm:
+  api:
+    client:
+      access-key: 1ba952c990f6c34e1acc099ba8d9cf98
+      secret-key: be101736570267b5573a5e8f2177e25d
 
 dubbo:
   application:
@@ -57,3 +65,11 @@ dubbo:
   registry:
     id: nacos-registry
     address: nacos://localhost:8848
+
+# 腾讯云配置
+cos:
+  client:
+    accessKey: AKIDgEbptjLlxxlOnzzlhP1RdaJq9D3hHdlf
+    secretKey: oGRO7k9JEuNdfSGsFOl02mSu9B0bzA7w
+    region: ap-shanghai
+    bucket: image-storage-1320836626

@@ -48,4 +48,16 @@ public class ResultUtils {
     public static BaseResponse error(ErrorCode errorCode, String message) {
         return new BaseResponse(errorCode.getCode(), null, message);
     }
+
+    /**
+     * 错误
+     *
+     * @param data      数据
+     * @param errorCode 错误代码
+     * @param message   消息
+     * @return {@link BaseResponse}<{@link T}>
+     */
+    public static <T> BaseResponse<T> error(T data, ErrorCode errorCode, String message) {
+        return new BaseResponse<>(errorCode.getCode(), data, message);
+    }
 }
